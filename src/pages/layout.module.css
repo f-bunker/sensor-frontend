@@ -1,0 +1,49 @@
+:root {
+    --header-bg-color: #006480;
+    --link-color: aqua;
+    --link-hover-color: white;
+    --padding-horizontal: 10%;
+    --header-height: 5rem;
+    --font-size-large: 1.25rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    padding: 0 var(--padding-horizontal);
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg-color);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav li {
+    margin-left: 1.5rem;
+    font-size: var(--font-size-large);
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a:active {
+    color: var(--link-hover-color);
+}

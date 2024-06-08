@@ -1,0 +1,7 @@
+.ChartContainer {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+}
+.ChartContainer .ChartWrapper {
+    padding: 10%;
+}
