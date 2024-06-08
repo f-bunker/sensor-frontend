@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-// import styles from './chart.module.css';
+import classes from './chart.module.css'
 import {
   Chart as ChartJs,
   LinearScale,
@@ -93,8 +93,10 @@ const ChartWrapper: React.FC<ChartType> = ({ type }) => {
   }
 
   return (
-    <div>
-      {getChartComponent(type)}
+    <div className={classes.ChartContainer}>
+      <div>
+        {getChartComponent(type)}
+      </div>
     </div>
   )
 };

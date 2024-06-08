@@ -1,38 +1,15 @@
-/* chart.module.css
-.chart-container {
-  display: grid;
-	grid-template-rows: repeat(auto-fit, minmax(300px, 2fr));
-  gap: 20px;
+.ChartContainer {
   padding: 2% 20% 1% 20%;
-}
-*/
-  
-.chart-wrapper {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px; /* Innenabstand innerhalb der Diagramm-Box */
-  margin: 20px; /* Außenabstand um die Diagramm-Box */
-}
-
-.chart-wrapper canvas {
-  width: 100% !important;
-  height: auto !important;
 }
 
 /* Mobile styling */
 @media (max-width: 1050px) {
-  .chart-container {
+  .ChartContainer {
     padding: 2% 10% 1% 10%;
   }
 }
 @media (max-width: 768px) {
-  .chart-container {
+  .ChartContainer {
 		padding: 2% 10% 1% 10%;
-  }
-
-  .chart-wrapper {
-    margin-bottom: 20px; /* Abstand unten für mobile Ansicht */
   }
 }
