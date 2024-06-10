@@ -1,11 +1,19 @@
-const live = () => {
-    return (
-      <div>
-        <h1>Wetterstation</h1>
-        <h2>Live statistik von {}</h2><br />
-        <p>das wetter beträgt momentan 24 Grad!</p>
+import React from "react";
+import ChartWraperHum from "../components/ChartWraperHum";
+import ChartWraperTemp from "../components/ChartWraperTemp";
+import style from "./live.module.css";
+
+const Live = () => {
+  return (
+    <div className={style.container}>
+      <h1>Wetterstation</h1>
+      <h2>Live</h2>
+      <div className={style.chartWraper}>
+        <ChartWraperTemp chartClass={style.chart} />
+        <ChartWraperHum chartClass={style.chart} />
       </div>
-    )
-  };
-  
-  export default live;
+    </div>
+  );
+};
+
+export default Live;

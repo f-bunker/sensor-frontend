@@ -1,7 +1,32 @@
+/* history.module.css */
+
 .ChartContainer {
-    display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
-}
-.ChartContainer .ChartWrapper {
-    padding: 10%;
-}
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .chartWraper {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertikal zentrieren */
+    margin-top: 20px;
+  }
+  
+  .chartWraper .chart {
+    width: 300px;
+    height: 300px;
+    margin: auto; /* Horizontal zentrieren */
+  }
+  
+  /* Media Query für mobile Geräte */
+  @media (max-width: 768px) {
+    .chartWraper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .chartWraper .chart {
+      margin: 10px 0;
+    }
+  }
+  

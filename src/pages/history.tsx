@@ -1,13 +1,13 @@
-import ChartWrapper, { ChartTypeEnum } from "../components/ChartWraper";
+import React from "react";
+import ChartWraperMounth from "../components/ChartWraperMounth";
 import style from "./history.module.css"
 
-const history = () => {
+const History = () => {
   return (
     <div className={style.ChartContainer}>
-      <ChartWrapper type={ChartTypeEnum.line} />
-      <ChartWrapper type={ChartTypeEnum.line} />
+      <ChartWraperMounth />
     </div>
-  )
+  );
 };
   
-  export default history;
+export default History;
