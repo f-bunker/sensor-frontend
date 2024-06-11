@@ -43,7 +43,7 @@ const ChartWraperHum = ({ chartClass }: { chartClass: string }): JSX.Element => 
     };
 
     fetchData();
-    const id = setInterval(fetchData, 3000);
+    const id = setInterval(fetchData, 10000);
 
     return () => {
       clearInterval(id);
