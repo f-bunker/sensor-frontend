@@ -1,15 +1,24 @@
-import React from 'react';
-import { useState, useEffect } from "react";
-import { Chart } from "react-google-charts";
-import { sensor_api } from "../generated/sensor_api";
+import React, { useState, useEffect } from 'react';
+import { Chart } from 'react-google-charts';
+import { sensor_api } from '../generated/sensor_api';
 
-const client = new sensor_api({ BASE: "https://sensor.f-bunker.io" });
-const sensorData = await client.hour.getHourData();
+const client = new sensor_api({ BASE: 'https://sensor.f-bunker.io' });
 
-export function getData() {
+async function fetchSensorData() {
+  try {
+    const sensorData = await client.hour.getHourData();
+    return sensorData;
+  } catch (error) {
+    console.error('API request failed', error);
+    return [{ hum: 0 }];
+  }
+}
+
+export async function getData() {
+  const sensorData = await fetchSensorData();
   return [
-    ["Label", "Value"],
-    ["Luft", parseFloat(sensorData[0].hum.toFixed(1))],
+    ['Label', 'Value'],
+    ['Luft', parseFloat(sensorData[0].hum.toFixed(1))],
   ];
 }
 
@@ -25,17 +34,21 @@ export const options = {
 };
 
 const ChartWraperHum = ({ chartClass }: { chartClass: string }): JSX.Element => {
-  const [data, setData] = useState(getData);
+  const [data, setData] = useState([['Label', 'Value'], ['Luft', 0]]);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setData(getData());
-    }, 3000);
+    const fetchData = async () => {
+      const result = await getData();
+      setData(result);
+    };
+
+    fetchData();
+    const id = setInterval(fetchData, 3000);
 
     return () => {
       clearInterval(id);
     };
-  });
+  }, []);
 
   return (
     <div className={chartClass}>
@@ -48,6 +61,6 @@ const ChartWraperHum = ({ chartClass }: { chartClass: string }): JSX.Element => 
       />
     </div>
   );
-}
+};
 
 export default ChartWraperHum;
