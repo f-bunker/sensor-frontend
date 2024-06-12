@@ -9,10 +9,12 @@ import { sensor_api } from "../generated/sensor_api";
 
 const client = new sensor_api({ BASE: "https://sensor.f-bunker.io" });
 const sensorData = await client.month.getMonthData();
+console.log(sensorData[20].hum_median)
 
 export const data = [
   ["Zeitraum eines Monat", "Grad"],
-  ...sensorData.slice(0, 24).reverse().map(sensor => [sensor.timestamp.slice(0, 10), sensor.temp_median])
+  [0,1]
+  //...sensorData.slice(0, 24).reverse().map(sensor => [sensor.timestamp.slice(0, 10), sensor.temp_median])
 ];
 
 export const options = {
