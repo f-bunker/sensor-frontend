@@ -1,1 +1,165 @@
-{"openapi":"3.0.3","info":{"title":"rusty-sensor","description":"","license":{"name":""},"version":"0.1.0"},"paths":{"/data/hour":{"get":{"tags":["hour"],"operationId":"get_hour_data","responses":{"200":{"description":"Array of data points","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/TimeRes"}}}}}}}},"/data/month":{"get":{"tags":["month"],"operationId":"get_month_data","responses":{"200":{"description":"Array of data points","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/MonthRes"}}}}}}}}},"components":{"schemas":{"MonthRes":{"type":"object","required":["timestamp","temp_median","hum_median"],"properties":{"hum_median":{"type":"number","format":"double"},"temp_median":{"type":"number","format":"double"},"timestamp":{"type":"string","format":"date-time"}}},"TimeRes":{"type":"object","required":["timestamp","sensor_id","temp","hum"],"properties":{"hum":{"type":"number","format":"float"},"sensor_id":{"type":"string"},"temp":{"type":"number","format":"float"},"timestamp":{"type":"string","format":"date-time"}}}}}}
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "rusty-sensor",
+        "description": "",
+        "license": {
+            "name": ""
+        },
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/data/hour": {
+            "get": {
+                "tags": [
+                    "hour"
+                ],
+                "operationId": "get_hour_data",
+                "parameters": [
+                    {
+                        "name": "sensor_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Array of data points",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeRes"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/data/id": {
+            "get": {
+                "tags": [
+                    "id"
+                ],
+                "operationId": "get_ids",
+                "responses": {
+                    "200": {
+                        "description": "Array of data points",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IdRes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/data/month": {
+            "get": {
+                "tags": [
+                    "month"
+                ],
+                "operationId": "get_month_data",
+                "parameters": [
+                    {
+                        "name": "sensor_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Array of data points",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MonthRes"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "IdRes": {
+                "type": "object",
+                "required": [
+                    "sensor_id"
+                ],
+                "properties": {
+                    "sensor_id": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "MonthRes": {
+                "type": "object",
+                "required": [
+                    "timestamp",
+                    "temp_median",
+                    "hum_median"
+                ],
+                "properties": {
+                    "hum_median": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "temp_median": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "TimeRes": {
+                "type": "object",
+                "required": [
+                    "timestamp",
+                    "sensor_id",
+                    "temp",
+                    "hum"
+                ],
+                "properties": {
+                    "hum": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "sensor_id": {
+                        "type": "string"
+                    },
+                    "temp": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        }
+    }
+}

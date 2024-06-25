@@ -10,8 +10,10 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
+export type { IdRes } from './models/IdRes';
 export type { MonthRes } from './models/MonthRes';
 export type { TimeRes } from './models/TimeRes';
 
 export { HourService } from './services/HourService';
+export { IdService } from './services/IdService';
 export { MonthService } from './services/MonthService';

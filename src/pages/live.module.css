@@ -16,6 +16,12 @@
     height: 300px;
     margin: 0 10px; /* Abstand zwischen den Charts */
   }
+
+  .dropdown {
+    border-radius: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+  }
   
   /* Media Query für mobile Geräte */
   @media (max-width: 768px) {

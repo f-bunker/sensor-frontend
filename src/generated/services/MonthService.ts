@@ -8,13 +8,19 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class MonthService {
     constructor(public readonly httpRequest: BaseHttpRequest) {}
     /**
+     * @param sensorId
      * @returns MonthRes Array of data points
      * @throws ApiError
      */
-    public getMonthData(): CancelablePromise<Array<MonthRes>> {
+    public getMonthData(
+        sensorId: string,
+    ): CancelablePromise<Array<MonthRes>> {
         return this.httpRequest.request({
             method: 'GET',
             url: '/data/month',
+            query: {
+                'sensor_id': sensorId,
+            },
         });
     }
 }

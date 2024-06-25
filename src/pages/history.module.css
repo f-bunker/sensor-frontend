@@ -1,32 +1,34 @@
 /* history.module.css */
-
+header {
+  text-align: center;
+  padding: 1%;
+}
 .ChartContainer {
     padding: 20px;
     text-align: center;
   }
-  
+
+.chartWraper {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertikal zentrieren */
+  margin-top: 20px;
+}
+
+.chartWraper .chart {
+  width: 300px;
+  height: 300px;
+  margin: auto; /* Horizontal zentrieren */
+}
+
+/* Media Query für mobile Geräte */
+@media (max-width: 768px) {
   .chartWraper {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertikal zentrieren */
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .chartWraper .chart {
-    width: 300px;
-    height: 300px;
-    margin: auto; /* Horizontal zentrieren */
+    margin: 10px 0;
   }
-  
-  /* Media Query für mobile Geräte */
-  @media (max-width: 768px) {
-    .chartWraper {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .chartWraper .chart {
-      margin: 10px 0;
-    }
-  }
-  
+}

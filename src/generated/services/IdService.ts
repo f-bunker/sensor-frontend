@@ -2,25 +2,19 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { TimeRes } from '../models/TimeRes';
+import type { IdRes } from '../models/IdRes';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-export class HourService {
+export class IdService {
     constructor(public readonly httpRequest: BaseHttpRequest) {}
     /**
-     * @param sensorId
-     * @returns TimeRes Array of data points
+     * @returns IdRes Array of data points
      * @throws ApiError
      */
-    public getHourData(
-        sensorId: string,
-    ): CancelablePromise<Array<TimeRes>> {
+    public getIds(): CancelablePromise<IdRes> {
         return this.httpRequest.request({
             method: 'GET',
-            url: '/data/hour',
-            query: {
-                'sensor_id': sensorId,
-            },
+            url: '/data/id',
         });
     }
 }
