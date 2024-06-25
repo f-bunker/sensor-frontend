@@ -25,10 +25,10 @@ const Layout = () => {
       <nav className={classes.nav}>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/ui">Home</Link>
           </li>
           <li>
-            <Link to="/history">History</Link>
+            <Link to="/ui/history">History</Link>
           </li>
         </ul>
       </nav>

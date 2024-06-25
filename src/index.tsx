@@ -9,9 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
 <BrowserRouter>
   <Routes>
-    <Route path="/" element={<Layout />}>
+    <Route path="/ui" element={<Layout />}>
       <Route index element={<Live />} />
-      <Route path="history" element={<History />} />
+      <Route path="/ui/history" element={<History />} />
       <Route path="*" element={<NoPage />} />
     </Route>
   </Routes>
